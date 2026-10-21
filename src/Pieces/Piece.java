@@ -19,4 +19,7 @@ public class Piece {
         pos = p;
     }
 
+    //Declaration for all subclasses to use this method
+    public void move() {};
+
 }
