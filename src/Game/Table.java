@@ -1,7 +1,22 @@
 package Game;
 
-import Misctools.Coordinate;
+import Misctools.Space;
 
 public class Table {
-    private Coordinate[][] table = new Coordinate[8][8];
+    private Space[][] board = new Space[8][8];
+
+    //Constructor for all new tables
+    //sets the spaces
+    public Table() {
+        char a = 'a';
+        boolean color = true;
+        for (int collumnn = 0; collumnn < 8; collumnn++) {
+            char colc = (char)(a+collumnn);
+
+            for (int row = 0; row < 8; row++) {
+                board[collumnn][row] = new Space(colc, row+1, color);
+                color = !color;
+            }
+        }
+    }
 }
