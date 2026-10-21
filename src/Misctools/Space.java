@@ -10,7 +10,7 @@ public class Space {
     //0 - white, 1 - black
     private boolean color;
 
-    Space(char a, int b, boolean c) {
+    public Space(char a, int b, boolean c) {
         row = b;
         collumn = a;
         color = c;
