@@ -6,10 +6,14 @@ package Misctools;
 public class Coordinate {
     private int row;
     private char collumn;
+    //Storing the color in bool for easier managment
+    //0 - white, 1 - black
+    private boolean color;
 
-    Coordinate(int a, char b) {
+    Coordinate(int a, char b, boolean c) {
         row = a;
         collumn = b;
+        color = c;
     }
 
     public int getRow() {
@@ -18,5 +22,9 @@ public class Coordinate {
 
     public char getCollumn() {
         return collumn;
+    }
+
+    public boolean getColor() {
+        return color;
     }
 }
