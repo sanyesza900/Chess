@@ -12,6 +12,9 @@ public class Piece {
         pos = b;
     }
 
+    public Piece() {
+    }
+
     public void setPos(Coordinate p) {
         pos = p;
     }
