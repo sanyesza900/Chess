@@ -3,16 +3,16 @@ package Misctools;
 //Will be used for storing coordinate
 //Basic setters and getters
 //Piece and Table will use it
-public class Coordinate {
-    private int row;
+public class Space {
     private char collumn;
+    private int row;
     //Storing the color in bool for easier managment
     //0 - white, 1 - black
     private boolean color;
 
-    Coordinate(int a, char b, boolean c) {
-        row = a;
-        collumn = b;
+    Space(char a, int b, boolean c) {
+        row = b;
+        collumn = a;
         color = c;
     }
 
