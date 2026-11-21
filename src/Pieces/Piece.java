@@ -1,13 +1,14 @@
 package Pieces;
-import Misctools.Coordinate;
+import Misctools.Space;
 
 public class Piece {
     //Storing a piece color in bool for easier managment
-    //0 - white, 1 - black
-    private boolean color;
-    private Coordinate pos;
+    //false - white, true - black
+    protected boolean color;
+    protected Space pos;
 
-    Piece(boolean a, Coordinate b) {
+
+    Piece(boolean a, Space b) {
         color = a;
         pos = b;
     }
@@ -15,7 +16,7 @@ public class Piece {
     public Piece() {
     }
 
-    public void setPos(Coordinate p) {
+    public void setPos(Space p) {
         pos = p;
     }
 

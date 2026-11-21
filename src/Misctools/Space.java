@@ -6,14 +6,15 @@ package Misctools;
 public class Space {
     private char collumn;
     private int row;
+
     //Storing the color in bool for easier managment
-    //0 - white, 1 - black
+    //false - white, true - black
     private boolean color;
 
-    public Space(char a, int b, boolean c) {
-        row = b;
-        collumn = a;
-        color = c;
+    public Space(char c, int r, boolean col) {
+        row = r;
+        collumn = c;
+        color = col;
     }
 
     public int getRow() {
@@ -27,4 +28,18 @@ public class Space {
     public boolean getColor() {
         return color;
     }
+
+    //for testing
+    public void printSpace() {
+        String colorn;
+        if (color) {
+            colorn = "b";
+        }
+        else {
+            colorn = "w";
+        }
+        System.out.printf(collumn + "" + row + colorn + " ");
+    }
+
+
 }
