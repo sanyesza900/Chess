@@ -17,6 +17,7 @@ public class Pawn extends Piece {
         System.out.printf("Pa");
     }
 
+
     @Override
     public void move() {
         int step_num = move_calc(hasmoved);

@@ -39,7 +39,7 @@ public class Table {
             for (int row = 0; row < 8; row++) {
                 Space ns = new Space(colc, 8-row, color);
 
-                piecesOnSpace.put(ns, )
+                ///piecesOnSpace.put(ns, )
                 color = !color;
             }
         }
