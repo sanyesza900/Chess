@@ -1,19 +1,18 @@
 package Pieces;
 import Misctools.Space;
 
+//Main class for the pieces
 public class Piece {
     //Storing a piece color in bool for easier managment
     //false - white, true - black
     protected boolean color;
     protected Space pos;
 
-
-    Piece(boolean a, Space b) {
-        color = a;
-        pos = b;
+    public Piece() {
     }
 
-    public Piece() {
+    public Piece(boolean a) {
+        color = a;
     }
 
     public void setPos(Space p) {

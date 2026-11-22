@@ -1,6 +1,6 @@
 package Game;
 import Misctools.Space;
-import Pieces.Piece;
+import Pieces.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,7 +8,6 @@ import java.util.Map;
 public class Table {
     private Space[][] board = new Space[8][8];
     private Map<Space, Piece> piecesOnSpace = new HashMap<>();
-    private Piece[] backrow = new Piece[8];
 
     //Constructor for all new tables
     //sets the spaces
@@ -29,7 +28,6 @@ public class Table {
     //Assignes pieces to a space
     //Test
     public void setupTable() {
-
         char firstc = 'a';
         boolean color = true;
         for (int collumnn = 0; collumnn < 8; collumnn++) {

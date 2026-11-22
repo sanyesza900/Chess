@@ -4,6 +4,10 @@ public class Pawn extends Piece {
     //Checks if the Pawn can double move from its first space or no
     private boolean hasmoved = false;
 
+    public Pawn(boolean color) {
+        super(color);
+    }
+
     private int move_calc(boolean b) {
         if (!b) {
             return 2;
