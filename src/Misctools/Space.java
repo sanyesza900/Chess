@@ -31,14 +31,7 @@ public class Space {
 
     //for testing
     public void printSpace() {
-        String colorn;
-        if (color) {
-            colorn = "b";
-        }
-        else {
-            colorn = "w";
-        }
-        System.out.printf(collumn + "" + row + colorn + " ");
+        System.out.printf(collumn + "" + row + " ");
     }
 
 

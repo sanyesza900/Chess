@@ -6,51 +6,55 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
-    private Space[][] board = new Space[8][8];
     private Map<Space, Piece> piecesOnSpace = new HashMap<>();
+    private Set white = new Set(false);
+    private Set black = new Set(true);
 
     //Constructor for all new tables
-    //sets the spaces
+    //sets the spaces and pieces on the table
     public Table() {
         char firstc = 'a';
         boolean color = true;
+        int order = 0;
         for (int collumnn = 0; collumnn < 8; collumnn++) {
             color = !color;
             char colc = (char)(firstc+collumnn);
 
-            for (int row = 0; row < 8; row++) {
-                board[row][collumnn] = new Space(colc, 8-row, color);
+            for (int row = 8; row >= 1; row--) {
+                Space ns = new Space(colc, row, color);
+                switch (row) {
+                    case 8 -> {
+                        piecesOnSpace.put(ns, black.Backrow.get(order));
+                        piecesOnSpace.get(ns).setPos(ns);
+                    }
+                    case 7 -> {
+                        piecesOnSpace.put(ns, black.Frontrow.get(order));
+                        piecesOnSpace.get(ns).setPos(ns);
+                    }
+                    case 2 -> {
+                        piecesOnSpace.put(ns, white.Frontrow.get(order));
+                        piecesOnSpace.get(ns).setPos(ns);
+                    }
+                    case 1 -> {
+                        piecesOnSpace.put(ns, white.Backrow.get(order));
+                        piecesOnSpace.get(ns).setPos(ns);
+                    }
+                    default -> piecesOnSpace.put(ns, null);
+                }
                 color = !color;
             }
-        }
-    }
-
-    //Assignes pieces to a space
-    //Test
-    public void setupTable() {
-        char firstc = 'a';
-        boolean color = true;
-        for (int collumnn = 0; collumnn < 8; collumnn++) {
-            color = !color;
-            char colc = (char)(firstc+collumnn);
-
-            for (int row = 0; row < 8; row++) {
-                Space ns = new Space(colc, 8-row, color);
-
-                ///piecesOnSpace.put(ns, )
-                color = !color;
-            }
+            order++;
         }
     }
 
     //for testing
     public void printTable() {
-        for (int i = 0; i<8; i++) {
-            for (int j = 0; j<8; j++) {
-                board[i][j].printSpace();
+        for (Space i : piecesOnSpace.keySet()) {
+            if (piecesOnSpace.get(i) != null) {
+                piecesOnSpace.get(i).getPos().printSpace();
             }
-            System.out.println();
         }
+        System.out.println(piecesOnSpace.size());
     }
 
 

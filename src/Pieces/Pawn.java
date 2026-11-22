@@ -1,5 +1,9 @@
 package Pieces;
 
+import Misctools.Space;
+
+import java.util.HashMap;
+
 public class Pawn extends Piece {
     //Checks if the Pawn can double move from its first space or no
     private boolean hasmoved = false;
@@ -17,13 +21,8 @@ public class Pawn extends Piece {
         }
     }
 
-    public void printName() {
-        System.out.printf("Pa");
-    }
-
-
     @Override
-    public void move() {
+    public void move(HashMap<Space, Piece> board) {
         int step_num = move_calc(hasmoved);
         hasmoved = true;
 

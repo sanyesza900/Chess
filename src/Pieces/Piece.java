@@ -1,6 +1,8 @@
 package Pieces;
 import Misctools.Space;
 
+import java.util.HashMap;
+
 //Main class for the pieces
 public class Piece {
     //Storing a piece color in bool for easier managment
@@ -19,7 +21,11 @@ public class Piece {
         pos = p;
     }
 
+    public Space getPos() {
+        return pos;
+    }
+
     //Declaration for all subclasses to use this method
-    public void move() {};
+    public void move(HashMap<Space, Piece> board) {};
 
 }
