@@ -2,65 +2,55 @@ package Game;
 import Misctools.Space;
 import Pieces.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
-    private Map<Space, Piece> piecesOnSpace = new HashMap<>();
-    private Map<String, Space> spaceName = new HashMap<>();
+    private Map<Integer, Space> board = new HashMap<>();
     private Set white = new Set(false);
     private Set black = new Set(true);
 
     //Constructor for all new tables
     //sets the spaces and pieces on the table
     public Table() {
-        char firstc = 'a';
         boolean color = true;
-        int order = 0;
-        for (int collumnn = 0; collumnn < 8; collumnn++) {
+        for (int row = 1; row <= 8; row++) {
+            char firstc = 'a';
+            int order = 0;
             color = !color;
-            char colc = (char) (firstc + collumnn);
 
-            for (int row = 8; row >= 1; row--) {
+            for (int collumn = 0; collumn < 8; collumn++) {
+                char colc = (char) (firstc + collumn);
+                color = !color;
+
                 Space ns = new Space(colc, row, color);
-                switch (row) {
-                    case 8 -> {
-                        piecesOnSpace.put(ns, black.Backrow.get(order));
-                        piecesOnSpace.get(ns).setPos(ns);
-                    }
-                    case 7 -> {
-                        piecesOnSpace.put(ns, black.Frontrow.get(order));
-                        piecesOnSpace.get(ns).setPos(ns);
-                    }
-                    case 2 -> {
-                        piecesOnSpace.put(ns, white.Frontrow.get(order));
-                        piecesOnSpace.get(ns).setPos(ns);
-                    }
-                    case 1 -> {
-                        piecesOnSpace.put(ns, white.Backrow.get(order));
-                        piecesOnSpace.get(ns).setPos(ns);
-                    }
-                    default -> piecesOnSpace.put(ns, null);
-                }
-                spaceName.put(ns.getName(), ns);
+                board.put(ns.getId(), ns);
 
+                switch(row) {
+                    case 1 -> white.Backrow.get(order).setPos(ns);
+                    case 2 -> white.Frontrow.get(order).setPos(ns);
+                    case 7 -> black.Frontrow.get(order).setPos(ns);
+                    case 8 -> black.Backrow.get(order).setPos(ns);
+                }
+                order++;
             }
-            color = !color;
-            order++;
         }
     }
 
 
     //for testing
-    public void printTable() {
-        for (Space i : piecesOnSpace.keySet()) {
-            if (piecesOnSpace.get(i) != null) {
-                piecesOnSpace.get(i).getPos().printSpace();
-                System.out.println(i.getName());
+    public void printBoard() {
+        int line = 1;
+        for (int i : board.keySet()) {
+            System.out.printf(board.get(i).getName());
+            if (line == 8) {
+                System.out.println();
+                line = 0;
             }
+            line++;
         }
-        System.out.println(piecesOnSpace.size());
+        white.printSetWithSpaces();
+        black.printSetWithSpaces();
     }
 
 }

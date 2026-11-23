@@ -4,7 +4,7 @@ package Misctools;
 //Basic setters and getters
 //Piece and Table will use it
 public class Space {
-    private static int id = 1;
+    private static int id = 0;
     private char collumn;
     private int row;
 
@@ -34,7 +34,10 @@ public class Space {
     public int getId() { return id;}
 
     public String getName() {
-        return collumn + "" + row;
+        if (!color) {
+            return collumn + "" + row + "" + "w" + " ";
+        }
+        return collumn + "" + row + "" + "b" + " ";
     }
 
     //for testing
