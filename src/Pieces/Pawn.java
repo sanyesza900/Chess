@@ -2,6 +2,7 @@ package Pieces;
 
 import Misctools.Space;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Pawn extends Piece {
@@ -12,24 +13,14 @@ public class Pawn extends Piece {
         super(color);
     }
 
-    private int move_calc(boolean b) {
-        if (!b) {
-            return 2;
-        }
-        else {
-            return 1;
-        }
-    }
-
     @Override
-    public void move(HashMap<Space, Piece> board) {
-        int step_num = move_calc(hasmoved);
+    public ArrayList<Space> canMoveTo(HashMap<Space, Piece> board) {
+        ArrayList<Space> movelist = new ArrayList<>();
         hasmoved = true;
+        String nsn;
 
-        if (!color) {
 
-        }
+        return movelist;
     }
-
 
 }

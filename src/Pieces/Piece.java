@@ -1,6 +1,7 @@
 package Pieces;
 import Misctools.Space;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 //Main class for the pieces
@@ -26,6 +27,8 @@ public class Piece {
     }
 
     //Declaration for all subclasses to use this method
-    public void move(HashMap<Space, Piece> board) {};
+    public ArrayList<Space> canMoveTo(HashMap<Space, Piece> board) {
+        return null;
+    };
 
 }

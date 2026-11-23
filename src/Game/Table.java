@@ -2,11 +2,13 @@ package Game;
 import Misctools.Space;
 import Pieces.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
     private Map<Space, Piece> piecesOnSpace = new HashMap<>();
+    private Map<String, Space> spaceName = new HashMap<>();
     private Set white = new Set(false);
     private Set black = new Set(true);
 
@@ -18,7 +20,7 @@ public class Table {
         int order = 0;
         for (int collumnn = 0; collumnn < 8; collumnn++) {
             color = !color;
-            char colc = (char)(firstc+collumnn);
+            char colc = (char) (firstc + collumnn);
 
             for (int row = 8; row >= 1; row--) {
                 Space ns = new Space(colc, row, color);
@@ -41,21 +43,24 @@ public class Table {
                     }
                     default -> piecesOnSpace.put(ns, null);
                 }
-                color = !color;
+                spaceName.put(ns.getName(), ns);
+
             }
+            color = !color;
             order++;
         }
     }
+
 
     //for testing
     public void printTable() {
         for (Space i : piecesOnSpace.keySet()) {
             if (piecesOnSpace.get(i) != null) {
                 piecesOnSpace.get(i).getPos().printSpace();
+                System.out.println(i.getName());
             }
         }
         System.out.println(piecesOnSpace.size());
     }
-
 
 }
