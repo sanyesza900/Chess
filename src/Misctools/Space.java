@@ -4,7 +4,7 @@ package Misctools;
 //Basic setters and getters
 //Piece and Table will use it
 public class Space {
-    private static int id = 0;
+    private int id;
     private char collumn;
     private int row;
 
@@ -12,11 +12,11 @@ public class Space {
     //false - white, true - black
     private boolean color;
 
-    public Space(char c, int r, boolean col) {
+    public Space(char c, int r, boolean col, int id) {
         row = r;
         collumn = c;
         color = col;
-        id++;
+        this.id = id;
     }
 
     public int getRow() {

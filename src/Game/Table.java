@@ -6,15 +6,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Table {
-    private Map<Integer, Space> board = new HashMap<>();
+    private HashMap<Integer, Space> board = new HashMap<>();
     private Set white = new Set(false);
     private Set black = new Set(true);
 
     //Constructor for all new tables
     //sets the spaces and pieces on the table
     public Table() {
-        boolean color = true;
-        for (int row = 1; row <= 8; row++) {
+        int id = 1;
+        boolean color = false;
+        for (int row = 8; row >= 1; row--) {
             char firstc = 'a';
             int order = 0;
             color = !color;
@@ -23,8 +24,9 @@ public class Table {
                 char colc = (char) (firstc + collumn);
                 color = !color;
 
-                Space ns = new Space(colc, row, color);
-                board.put(ns.getId(), ns);
+                Space ns = new Space(colc, row, color, id);
+                board.put(id, ns);
+                id++;
 
                 switch(row) {
                     case 1 -> white.Backrow.get(order).setPos(ns);
@@ -42,7 +44,8 @@ public class Table {
     public void printBoard() {
         int line = 1;
         for (int i : board.keySet()) {
-            System.out.printf(board.get(i).getName());
+            System.out.print(i + " ");
+            ///System.out.printf(board.get(i).getName());
             if (line == 8) {
                 System.out.println();
                 line = 0;
@@ -51,6 +54,10 @@ public class Table {
         }
         white.printSetWithSpaces();
         black.printSetWithSpaces();
+    }
+
+    public HashMap<Integer, Space> getBoard() {
+        return board;
     }
 
 }
