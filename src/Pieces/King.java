@@ -14,36 +14,41 @@ public class King extends Piece {
         super(color);
     }
 
+
+    //Calculates where the king can move
+    //returns a list of all possible Spaces
+    //If the Space doesnt exist or is on the other side of the board, then it wont add that space to the list
     @Override
     public ArrayList<Space> canMoveTo(HashMap<Integer, Space> board) {
         ArrayList<Space> movelist = new ArrayList<>();
         int currentposid = getPos().getId();
         int d_diff = -1;
-        if (WhichSide()) {
+        if (pos.getId() % 8 == 0) {
             d_diff = 1;
         }
-        else if (!WhichSide()) {
+        if (pos.getId() % 8 == 1) {
             d_diff = 0;
         }
-
 
         for (int i = 0; i < 3; i++) {
             Space forw = board.get(currentposid-(7+i));
             Space backw = board.get(currentposid+(7+i));
-            if (forw != null && (forw.getId() % 8) != d_diff) {
+            if (forw != null && (forw.getId() % 8) != d_diff && !this.anotherPieceBlock(forw)) {
                 movelist.add(forw);
             }
-            if (backw != null && (backw.getId() % 8) != d_diff) {
+            if (backw != null && (backw.getId() % 8) != d_diff && !this.anotherPieceBlock(backw)) {
                 movelist.add(backw);
             }
         }
 
-        if(board.get(currentposid-1) != null && ((currentposid-1) % 8) != d_diff) {
-            movelist.add(board.get(currentposid-1));
+        Space left = board.get(currentposid-1);
+        if(left != null && ((currentposid-1) % 8) != d_diff && !this.anotherPieceBlock(left)) {
+            movelist.add(left);
         }
 
-        if (board.get(currentposid+1) != null && ((currentposid+1) % 8) != d_diff) {
-            movelist.add(board.get(currentposid+1));
+        Space right = board.get(currentposid+1);
+        if (right!= null && ((currentposid+1) % 8) != d_diff && !this.anotherPieceBlock(right) ) {
+            movelist.add(right);
         }
 
         return movelist;

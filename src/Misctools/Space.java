@@ -7,16 +7,19 @@ public class Space {
     private int id;
     private char collumn;
     private int row;
+    private boolean isoccupied;
 
     //Storing the color in bool for easier managment
     //false - white, true - black
     private boolean color;
+    private boolean occupiedpiececolor;
 
     public Space(char c, int r, boolean col, int id) {
         row = r;
         collumn = c;
         color = col;
         this.id = id;
+        isoccupied = false;
     }
 
     public int getRow() {
@@ -33,6 +36,23 @@ public class Space {
 
     public int getId() { return id;}
 
+    public boolean getIsOccupied() {
+        return isoccupied;
+    }
+
+    public boolean getOccupiedPieceColor() {
+        return occupiedpiececolor;
+    }
+
+    public void setIsOccupied() {
+        isoccupied = true;
+    }
+
+    public void setOccupiedPieceColor(boolean c) {
+        occupiedpiececolor = c;
+    }
+
+    //Gives back the name as String
     public String getName() {
         if (!color) {
             return collumn + "" + row + "" + "w" + " ";

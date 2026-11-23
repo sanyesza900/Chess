@@ -16,8 +16,7 @@ public class Pawn extends Piece {
     @Override
     public ArrayList<Space> canMoveTo(HashMap<Integer, Space> board) {
         ArrayList<Space> movelist = new ArrayList<>();
-        hasmoved = true;
-        String nsn;
+
 
 
         return movelist;

@@ -29,10 +29,26 @@ public class Table {
                 id++;
 
                 switch(row) {
-                    case 1 -> white.Backrow.get(order).setPos(ns);
-                    case 2 -> white.Frontrow.get(order).setPos(ns);
-                    case 7 -> black.Frontrow.get(order).setPos(ns);
-                    case 8 -> black.Backrow.get(order).setPos(ns);
+                    case 1 -> {
+                        ns.setIsOccupied();
+                        ns.setOccupiedPieceColor(white.color);
+                        white.Backrow.get(order).setPos(ns);
+                    }
+                    case 2 -> {
+                        ns.setIsOccupied();
+                        ns.setOccupiedPieceColor(white.color);
+                        white.Frontrow.get(order).setPos(ns);
+                    }
+                    case 7 -> {
+                        ns.setIsOccupied();
+                        ns.setOccupiedPieceColor(black.color);
+                        black.Frontrow.get(order).setPos(ns);
+                    }
+                    case 8 -> {
+                        ns.setIsOccupied();
+                        ns.setOccupiedPieceColor(black.color);
+                        black.Backrow.get(order).setPos(ns);
+                    }
                 }
                 order++;
             }
@@ -58,6 +74,14 @@ public class Table {
 
     public HashMap<Integer, Space> getBoard() {
         return board;
+    }
+
+    public Set getSetWhite() {
+        return white;
+    }
+
+    public Set getSetBlack() {
+        return black;
     }
 
 }

@@ -30,18 +30,13 @@ public abstract class Piece {
     //Declaration for all subclasses to use this method
     public abstract ArrayList<Space> canMoveTo(HashMap<Integer, Space> board);
 
-    //Determines if piece is on left or right side
-    //Needed for move calculations
-    //false - left (a collumn)
-    //true - right  (h collumn)
-    public boolean WhichSide() {
-        if (pos.getId() % 8 == 0) {
+    public boolean anotherPieceBlock(Space s) {
+        if (s.getIsOccupied()) {
+            if (s.getOccupiedPieceColor() != this.color) {
+                return false;
+            }
             return true;
         }
-        if (pos.getId() % 8 == 1) {
-            return false;
-        }
-
         return false;
     }
 
