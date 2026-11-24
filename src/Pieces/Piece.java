@@ -30,7 +30,7 @@ public abstract class Piece {
     //Declaration for all subclasses to use this method
     public abstract ArrayList<Space> canMoveTo(HashMap<Integer, Space> board);
 
-    public boolean anotherPieceBlock(Space s) {
+    public boolean occupiedFriendly(Space s) {
         if (s.getIsOccupied()) {
             if (s.getOccupiedPieceColor() != this.color) {
                 return false;

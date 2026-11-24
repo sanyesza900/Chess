@@ -33,28 +33,28 @@ public class King extends Piece {
         for (int i = 0; i < 3; i++) {
             Space forw = board.get(currentposid-(7+i));
             Space backw = board.get(currentposid+(7+i));
-            if (forw != null && (forw.getId() % 8) != d_diff && !this.anotherPieceBlock(forw)) {
+            if (forw != null && (forw.getId() % 8) != d_diff && !this.occupiedFriendly(forw)) {
                 movelist.add(forw);
             }
-            if (backw != null && (backw.getId() % 8) != d_diff && !this.anotherPieceBlock(backw)) {
+            if (backw != null && (backw.getId() % 8) != d_diff && !this.occupiedFriendly(backw)) {
                 movelist.add(backw);
             }
         }
 
         Space left = board.get(currentposid-1);
-        if(left != null && ((currentposid-1) % 8) != d_diff && !this.anotherPieceBlock(left)) {
+        if(left != null && ((currentposid-1) % 8) != d_diff && !this.occupiedFriendly(left)) {
             movelist.add(left);
         }
 
         Space right = board.get(currentposid+1);
-        if (right!= null && ((currentposid+1) % 8) != d_diff && !this.anotherPieceBlock(right) ) {
+        if (right!= null && ((currentposid+1) % 8) != d_diff && !this.occupiedFriendly(right) ) {
             movelist.add(right);
         }
 
         return movelist;
     }
 
-    public void setHasMovedtoTrue() {
+    public void setHasmovedtoTrue() {
         hasmoved = true;
     }
 }
