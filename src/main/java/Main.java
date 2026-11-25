@@ -22,7 +22,7 @@ public class Main {
         */
 
 
-        Piece king = new King(false);
+
         //Piece test
         Piece knight = new Knight(false);
         knight.setPos(board.get(44));
