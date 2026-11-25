@@ -1,4 +1,5 @@
 package Pieces;
+import Misctools.Color;
 import Misctools.Space;
 
 import java.util.ArrayList;
@@ -6,15 +7,13 @@ import java.util.HashMap;
 
 //Main class for the pieces
 public abstract class Piece {
-    //Storing a piece color in bool for easier managment
-    //false - white, true - black
-    protected boolean color;
+    protected Color color;
     protected Space pos;
 
     public Piece() {
     }
 
-    public Piece(boolean a) {
+    public Piece(Color a) {
         color = a;
     }
 

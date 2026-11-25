@@ -1,5 +1,6 @@
 package Pieces;
 
+import Misctools.Color;
 import Misctools.Space;
 
 import java.util.ArrayList;
@@ -7,7 +8,7 @@ import java.util.HashMap;
 
 public class Knight extends Piece {
 
-    public Knight(boolean color) {
+    public Knight(Color color) {
         super(color);
     }
 

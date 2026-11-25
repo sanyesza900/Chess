@@ -1,6 +1,7 @@
 
 package Pieces;
 
+import Misctools.Color;
 import Misctools.Space;
 import Pieces.Piece;
 
@@ -10,7 +11,7 @@ import java.util.HashMap;
 public class King extends Piece {
     private boolean hasmoved = false;
 
-    public King(boolean color) {
+    public King(Color color) {
         super(color);
     }
 

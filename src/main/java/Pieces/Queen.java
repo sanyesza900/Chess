@@ -1,5 +1,6 @@
 package Pieces;
 
+import Misctools.Color;
 import Misctools.Space;
 import Pieces.Piece;
 
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Queen extends Piece {
-    public Queen(boolean color) {
+    public Queen(Color color) {
         super(color);
     }
 

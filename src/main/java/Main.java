@@ -24,7 +24,7 @@ public class Main {
 
 
         //Piece test
-        Piece knight = new Knight(false);
+        Piece knight = new Knight(Color.WHITE);
         knight.setPos(board.get(44));
         knight.getPos().printSpace();
         //pawn.setHasmoved();
