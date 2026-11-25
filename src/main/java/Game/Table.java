@@ -1,4 +1,5 @@
 package Game;
+import Misctools.Color;
 import Misctools.Space;
 import Pieces.*;
 
@@ -7,22 +8,22 @@ import java.util.Map;
 
 public class Table {
     private HashMap<Integer, Space> board = new HashMap<>();
-    private Set white = new Set(false);
-    private Set black = new Set(true);
+    private Set white = new Set(Color.WHITE);
+    private Set black = new Set(Color.BLACK);
 
     //Constructor for all new tables
     //sets the spaces and pieces on the table
     public Table() {
         int id = 1;
-        boolean color = false;
+        Color color = Color.WHITE;
         for (int row = 8; row >= 1; row--) {
             char firstc = 'a';
             int order = 0;
-            color = !color;
+            color = color.opposite();
 
             for (int collumn = 0; collumn < 8; collumn++) {
                 char colc = (char) (firstc + collumn);
-                color = !color;
+                color = color.opposite();
 
                 Space ns = new Space(colc, row, color, id);
                 board.put(id, ns);
