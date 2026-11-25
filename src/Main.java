@@ -24,14 +24,14 @@ public class Main {
 
 
         //Piece test
-        Piece rook = new Rook(false);
-        rook.setPos(board.get(20));
-        rook.getPos().printSpace();
+        Piece bishop = new Bishop(false);
+        bishop.setPos(board.get(20));
+        bishop.getPos().printSpace();
         //pawn.setHasmoved();
         System.out.println();
-        ArrayList<Space> movelist = rook.canMoveTo(board);
+        ArrayList<Space> movelist = bishop.canMoveTo(board);
         for (Space i : movelist) {
-           System.out.println(i.getName());
+           System.out.println(i.getId());
         }
 
 
