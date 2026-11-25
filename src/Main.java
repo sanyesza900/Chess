@@ -24,12 +24,12 @@ public class Main {
 
 
         //Piece test
-        Pawn pawn = new Pawn(false);
-        pawn.setPos(board.get(20));
-        pawn.getPos().printSpace();
-        pawn.setHasmoved();
+        Piece rook = new Rook(false);
+        rook.setPos(board.get(20));
+        rook.getPos().printSpace();
+        //pawn.setHasmoved();
         System.out.println();
-        ArrayList<Space> movelist = pawn.canMoveTo(board);
+        ArrayList<Space> movelist = rook.canMoveTo(board);
         for (Space i : movelist) {
            System.out.println(i.getName());
         }
