@@ -13,7 +13,18 @@ public class Queen extends Piece {
 
     @Override
     public ArrayList<Space> canMoveTo(HashMap<Integer, Space> board) {
-        return null;
+        Rook r = new Rook(color);
+        r.setPos(getPos());
+        ArrayList<Space> movelist = new ArrayList<>(r.canMoveTo(board));
+
+        Bishop b = new Bishop(color);
+        b.setPos(getPos());
+        ArrayList<Space> temp = new ArrayList<>(b.canMoveTo(board));
+
+        movelist.addAll(temp);
+
+        return movelist;
+
     }
 
 }
