@@ -55,6 +55,10 @@ public class King extends Piece {
         return movelist;
     }
 
+    public boolean getHasmoved() {
+        return hasmoved;
+    }
+
     public void setHasmovedtoTrue() {
         hasmoved = true;
     }

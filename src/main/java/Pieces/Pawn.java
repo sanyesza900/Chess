@@ -63,7 +63,10 @@ public class Pawn extends Piece {
         return movelist;
     }
 
-    //Testing
+    public boolean getHasmoved() {
+        return hasmoved;
+    }
+
     public void setHasmoved() {
         hasmoved = true;
     }

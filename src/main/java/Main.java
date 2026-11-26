@@ -11,6 +11,7 @@ public class Main {
         Table t1 = new Table();
         HashMap<Integer, Space> board = t1.getBoard();
         t1.printBoard();
+        System.out.println();
 
         /*
         System.out.println();
@@ -22,7 +23,7 @@ public class Main {
         */
 
 
-
+        /*
         //Piece test
         Piece knight = new Knight(Color.WHITE);
         knight.setPos(board.get(44));
@@ -33,7 +34,7 @@ public class Main {
         for (Space i : movelist) {
            System.out.println(i.getId());
         }
-
+        */
 
     }
 }

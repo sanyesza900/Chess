@@ -1,6 +1,5 @@
 package Pieces;
 
-import Misctools.Color;
 import Misctools.Space;
 import Pieces.Piece;
 
@@ -8,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Rook extends Piece {
-    public Rook(Color color) {
+    public Rook(boolean color) {
         super(color);
     }
 
