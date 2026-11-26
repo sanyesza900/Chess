@@ -3,6 +3,7 @@ package Pieces;
 
 import Game.Set;
 import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import javax.naming.PartialResultException;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 
 public class King extends Piece {
     public boolean cancastle = false;
-    public King(Color color) {
+    public King(ColorLocal color) {
         super(color);
     }
 

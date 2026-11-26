@@ -1,5 +1,6 @@
 package Pieces;
 import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
@@ -8,14 +9,14 @@ import java.util.Iterator;
 
 //Main class for the pieces
 public abstract class Piece {
-    protected Color color;
+    protected ColorLocal color;
     protected Space pos;
     protected boolean Hasmoved = false;
 
     public Piece() {
     }
 
-    public Piece(Color a) {
+    public Piece(ColorLocal a) {
         color = a;
     }
 

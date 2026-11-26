@@ -1,13 +1,14 @@
 package Pieces;
 
 import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bishop extends Piece {
-    public Bishop(Color color) {
+    public Bishop(ColorLocal color) {
         super(color);
     }
 
