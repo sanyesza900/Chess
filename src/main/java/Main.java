@@ -2,16 +2,22 @@ import Game.*;
 import Misctools.*;
 import Pieces.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Main {
     public void main() {
+        //Grafika teszt
+        SwingUtilities.invokeLater(() -> new Game(100).setVisible(true));
+
         //Table test
+        /*
         Board t1 = new Board();
         HashMap<Integer, Space> board = t1.getBoard();
         t1.printBoard();
         System.out.println();
+        */
 
         /*
         System.out.println();
@@ -23,9 +29,9 @@ public class Main {
         */
 
 
-
+        /*
         //Piece test
-        Piece knight = new Knight(Color.WHITE);
+        Piece knight = new Knight(ColorLocal.WHITE);
         knight.setPos(board.get(20));
         knight.getPos().printSpace();
         //pawn.setHasmoved();
@@ -41,7 +47,7 @@ public class Main {
         for (Space i : attacklist) {
             System.out.println(i.getId());
         }
-
+        */
 
     }
 }
