@@ -5,14 +5,14 @@ package Misctools;
 //Piece and Table will use it
 public class Space {
     private int id;
-    private char collumn;
+    private int collumn;
     private int row;
     private boolean isoccupied;
 
     private ColorLocal color;
     private ColorLocal occupiedpiececolor;
 
-    public Space(char c, int r, ColorLocal col, int id) {
+    public Space(int c, int r, ColorLocal col, int id) {
         row = r;
         collumn = c;
         color = col;
@@ -24,7 +24,7 @@ public class Space {
         return row;
     }
 
-    public char getCollumn() {
+    public int getCollumn() {
         return collumn;
     }
 
@@ -53,9 +53,9 @@ public class Space {
     //Gives back the name as String
     public String getName() {
         if (color == ColorLocal.WHITE) {
-            return collumn + "" + row + "" + "w" + " ";
+            return collumn+'a' + "" + row + "" + "w" + " ";
         }
-        return collumn + "" + row + "" + "b" + " ";
+        return collumn+'a' + "" + row + "" + "b" + " ";
     }
 
     //for testing
