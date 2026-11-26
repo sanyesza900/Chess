@@ -1,16 +1,17 @@
 
 package Pieces;
 
-import Misctools.Color;
+import Game.Set;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
+import javax.naming.PartialResultException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class King extends Piece {
-    private boolean hasmoved = false;
-
-    public King(Color color) {
+    public boolean cancastle = false;
+    public King(ColorLocal color) {
         super(color);
     }
 
@@ -54,11 +55,48 @@ public class King extends Piece {
         return movelist;
     }
 
-    public boolean getHasmoved() {
-        return hasmoved;
+
+    //Checks if the King can short or long castle, if so it gives back the Space it will move to when castling
+    public ArrayList<Space> castle(Set pieceset, HashMap<Integer, Space> board) {
+        if (this.Hasmoved) {
+            return new ArrayList<>();
+        }
+
+        ArrayList<Space> castleList = new ArrayList<>();
+        //Jobbra
+        int id = getPos().getId();
+        for (int i = 1;  i < 3; i++) {
+            if (board.get(id+i).getIsOccupied()) {
+                return new ArrayList<>();
+            }
+        }
+        for (Piece p : pieceset.Backrow) {
+            if (p.getClass() == Rook.class && p.getPos() == board.get(id+3) && !p.Hasmoved) {
+                    castleList.add(board.get(id+2));
+                }
+
+        }
+
+        //Balra
+        for (int i = 1;  i < 4; i++) {
+            if (board.get(id-i).getIsOccupied()) {
+                return new ArrayList<>();
+            }
+        }
+        for (Piece p : pieceset.Backrow) {
+            if (p.getClass() == Rook.class && p.getPos() == board.get(id-4) && !p.Hasmoved) {
+                    castleList.add(board.get(id-2));
+                }
+
+        }
+
+        return castleList;
     }
 
-    public void setHasmovedtoTrue() {
-        hasmoved = true;
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2654";
+        }
+        return "\u265A";
     }
 }

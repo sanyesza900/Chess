@@ -1,5 +1,6 @@
 package Pieces;
-import Misctools.Color;
+
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
@@ -8,13 +9,14 @@ import java.util.Iterator;
 
 //Main class for the pieces
 public abstract class Piece {
-    protected Color color;
+    protected ColorLocal color;
     protected Space pos;
+    protected boolean Hasmoved = false;
 
     public Piece() {
     }
 
-    public Piece(Color a) {
+    public Piece(ColorLocal a) {
         color = a;
     }
 
@@ -29,6 +31,7 @@ public abstract class Piece {
 
     //Declaration for all subclasses to use this method
     public abstract ArrayList<Space> canMoveTo(HashMap<Integer, Space> board);
+    public abstract String getUnicode();
 
     //Recieves a piece movelist, then removes all the attacking squares and makes a new list with them
     public ArrayList<Space> attackList(ArrayList<Space> movelist) {
@@ -54,4 +57,7 @@ public abstract class Piece {
         return true;
     }
 
+    public boolean getHasmoved() {
+        return Hasmoved;
+    }
 }

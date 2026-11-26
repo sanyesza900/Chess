@@ -1,13 +1,13 @@
 package Pieces;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Bishop extends Piece {
-    public Bishop(Color color) {
+    public Bishop(ColorLocal color) {
         super(color);
     }
 
@@ -26,6 +26,9 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
+            }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
@@ -42,6 +45,9 @@ public class Bishop extends Piece {
 
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
+            }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
             }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
@@ -60,6 +66,9 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
+            }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
@@ -77,6 +86,9 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
+            }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
@@ -88,4 +100,10 @@ public class Bishop extends Piece {
 
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2657";
+        }
+        return "\u265D";
+    }
 }

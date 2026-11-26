@@ -1,16 +1,14 @@
 package Pieces;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Pawn extends Piece {
-    //Checks if the Pawn can double move from its first space or no
-    private boolean hasmoved = false;
 
-    public Pawn(Color color) {
+    public Pawn(ColorLocal color) {
         super(color);
     }
 
@@ -22,11 +20,11 @@ public class Pawn extends Piece {
     public ArrayList<Space> canMoveTo(HashMap<Integer, Space> board) {
         ArrayList<Space> movelist = new ArrayList<>();
         int nid  = getPos().getId();
-        if (color == Color.BLACK) { nid = nid+8;}
+        if (color == ColorLocal.BLACK) { nid = nid+8;}
         else { nid = nid-8; }
 
-        if (!hasmoved) {
-            if (color == Color.BLACK) {
+        if (!Hasmoved) {
+            if (color == ColorLocal.BLACK) {
                 for (int i = 0; i < 2; i++) {
                     if (!board.get(nid + 8 * i).getIsOccupied()) {
                         movelist.add(board.get(nid + 8 * i));
@@ -63,12 +61,11 @@ public class Pawn extends Piece {
         return movelist;
     }
 
-    public boolean getHasmoved() {
-        return hasmoved;
-    }
-
-    public void setHasmoved() {
-        hasmoved = true;
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2659";
+        }
+        return "\u265F";
     }
 
 }

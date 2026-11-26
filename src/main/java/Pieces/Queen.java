@@ -1,6 +1,6 @@
 package Pieces;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 import Pieces.Piece;
 
@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Queen extends Piece {
-    public Queen(Color color) {
+    public Queen(ColorLocal color) {
         super(color);
     }
 
@@ -28,4 +28,10 @@ public class Queen extends Piece {
 
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2655";
+        }
+        return "\u265B";
+    }
 }

@@ -1,18 +1,18 @@
 package Game;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Pieces.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class Set {
-    Color color;
+    ColorLocal color;
     public List<Piece> Backrow = new ArrayList<>();
     public List<Piece> Frontrow = new ArrayList<>();
 
     //Creates a full set with the given color
-    public Set(Color color) {
+    public Set(ColorLocal color) {
         for (int i = 0; i < 8; i++) {
             Frontrow.add(new Pawn(color));
         }
@@ -31,7 +31,7 @@ public class Set {
     //Testing
     public void printSetWithSpaces() {
         System.out.println();
-        if (color == Color.WHITE) {
+        if (color == ColorLocal.WHITE) {
             System.out.printf("White pieces position");
         }
         else {

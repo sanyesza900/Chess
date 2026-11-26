@@ -1,6 +1,6 @@
 package Pieces;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Knight extends Piece {
 
-    public Knight(Color color) {
+    public Knight(ColorLocal color) {
         super(color);
     }
 
@@ -61,4 +61,10 @@ public class Knight extends Piece {
         return movelist;
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2658";
+        }
+        return "\u265E";
+    }
 }

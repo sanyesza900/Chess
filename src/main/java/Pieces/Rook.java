@@ -1,13 +1,13 @@
 package Pieces;
 
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Rook extends Piece {
-    public Rook(Color color) {
+    public Rook(ColorLocal color) {
         super(color);
     }
 
@@ -23,6 +23,9 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
+            }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
@@ -34,6 +37,9 @@ public class Rook extends Piece {
             Space fs = board.get(bid);
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
+            }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
             }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
@@ -51,6 +57,9 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
+            }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
@@ -67,6 +76,9 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
+            }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
@@ -76,4 +88,10 @@ public class Rook extends Piece {
         return movelist;
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2656";
+        }
+        return "\u265C";
+    }
 }
