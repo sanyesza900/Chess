@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class Main {
     public void main() {
         //Table test
-        Table t1 = new Table();
+        Board t1 = new Board();
         HashMap<Integer, Space> board = t1.getBoard();
         t1.printBoard();
         System.out.println();

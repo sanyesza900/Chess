@@ -1,19 +1,17 @@
 package Game;
 import Misctools.Color;
 import Misctools.Space;
-import Pieces.*;
 
 import java.util.HashMap;
-import java.util.Map;
 
-public class Table {
+public class Board {
     private HashMap<Integer, Space> board = new HashMap<>();
     private Set white = new Set(Color.WHITE);
     private Set black = new Set(Color.BLACK);
 
     //Constructor for all new tables
     //sets the spaces and pieces on the table
-    public Table() {
+    public Board() {
         int id = 1;
         Color color = Color.WHITE;
         for (int row = 8; row >= 1; row--) {
