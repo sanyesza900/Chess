@@ -4,6 +4,7 @@ import Misctools.Space;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 
 //Main class for the pieces
 public abstract class Piece {
@@ -28,6 +29,20 @@ public abstract class Piece {
 
     //Declaration for all subclasses to use this method
     public abstract ArrayList<Space> canMoveTo(HashMap<Integer, Space> board);
+
+    //Recieves a piece movelist, then removes all the attacking squares and makes a new list with them
+    public ArrayList<Space> attackList(ArrayList<Space> movelist) {
+        ArrayList<Space> attacklist = new ArrayList<>();
+        for (var it = movelist.iterator(); it.hasNext();) {
+            Space s = it.next();
+            if (s.getIsOccupied() && s.getOccupiedPieceColor() != this.color) {
+                attacklist.add(s);
+                it.remove();
+            }
+        }
+
+        return attacklist;
+    }
 
     public boolean occupiedFriendly(Space s) {
         if (s.getIsOccupied()) {

@@ -23,18 +23,25 @@ public class Main {
         */
 
 
-        /*
+
         //Piece test
         Piece knight = new Knight(Color.WHITE);
-        knight.setPos(board.get(44));
+        knight.setPos(board.get(20));
         knight.getPos().printSpace();
         //pawn.setHasmoved();
         System.out.println();
         ArrayList<Space> movelist = knight.canMoveTo(board);
+        ArrayList<Space> attacklist = knight.attackList(movelist);
+        System.out.println("Move list:");
         for (Space i : movelist) {
            System.out.println(i.getId());
         }
-        */
+
+        System.out.println("Attack list:");
+        for (Space i : attacklist) {
+            System.out.println(i.getId());
+        }
+
 
     }
 }
