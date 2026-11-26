@@ -1,13 +1,13 @@
 package Pieces;
 
+import Misctools.Color;
 import Misctools.Space;
-import Pieces.Piece;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Rook extends Piece {
-    public Rook(boolean color) {
+    public Rook(Color color) {
         super(color);
     }
 
@@ -23,7 +23,7 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
-            else if (fs != null && !occupiedFriendly(fs)) {
+            else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
             }
@@ -35,7 +35,7 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
-            else if (fs != null && !occupiedFriendly(fs)) {
+            else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
             }
@@ -51,7 +51,7 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
-            else if (fs != null && !occupiedFriendly(fs)) {
+            else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
             }
@@ -67,7 +67,7 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
-            else if (fs != null && !occupiedFriendly(fs)) {
+            else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
             }

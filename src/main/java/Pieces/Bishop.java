@@ -2,7 +2,6 @@ package Pieces;
 
 import Misctools.Color;
 import Misctools.Space;
-import Pieces.Piece;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -27,7 +26,7 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
-            else if (ns != null && !occupiedFriendly(ns)) {
+            else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
             }
@@ -44,7 +43,7 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
-            else if (ns != null && !occupiedFriendly(ns)) {
+            else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
             }
@@ -61,7 +60,7 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
-            else if (ns != null && !occupiedFriendly(ns)) {
+            else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
             }
@@ -78,7 +77,7 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
-            else if (ns != null && !occupiedFriendly(ns)) {
+            else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
             }

@@ -52,11 +52,11 @@ public class Pawn extends Piece {
 
         }
 
-        if (board.get(nid-1).getIsOccupied() && !occupiedFriendly(board.get(nid-1))) {
+        if (board.get(nid-1).getIsOccupied() && occupiedFriendly(board.get(nid - 1))) {
             movelist.add(board.get(nid-1));
         }
 
-        if (board.get(nid+1).getIsOccupied() && !occupiedFriendly(board.get(nid+1))) {
+        if (board.get(nid+1).getIsOccupied() && occupiedFriendly(board.get(nid + 1))) {
             movelist.add(board.get(nid+1));
         }
 

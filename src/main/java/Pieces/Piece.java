@@ -32,11 +32,11 @@ public abstract class Piece {
     public boolean occupiedFriendly(Space s) {
         if (s.getIsOccupied()) {
             if (s.getOccupiedPieceColor() != this.color) {
-                return false;
+                return true;
             }
-            return true;
+            return false;
         }
-        return false;
+        return true;
     }
 
 }
