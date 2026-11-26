@@ -1,29 +1,27 @@
 package Game;
-import Misctools.Color;
+import Misctools.ColorLocal;
 import Misctools.Space;
 
 import java.util.HashMap;
 
 public class Board {
     private HashMap<Integer, Space> board = new HashMap<>();
-    private Set white = new Set(Color.WHITE);
-    private Set black = new Set(Color.BLACK);
+    private Set white = new Set(ColorLocal.WHITE);
+    private Set black = new Set(ColorLocal.BLACK);
 
     //Constructor for all new tables
     //sets the spaces and pieces on the table
     public Board() {
         int id = 1;
-        Color color = Color.WHITE;
+        ColorLocal color = ColorLocal.WHITE;
         for (int row = 8; row >= 1; row--) {
-            char firstc = 'a';
             int order = 0;
             color = color.opposite();
 
             for (int collumn = 0; collumn < 8; collumn++) {
-                char colc = (char) (firstc + collumn);
                 color = color.opposite();
 
-                Space ns = new Space(colc, row, color, id);
+                Space ns = new Space(collumn, 8-row, color, id);
                 board.put(id, ns);
                 id++;
 
