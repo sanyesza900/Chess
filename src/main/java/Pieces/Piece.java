@@ -10,6 +10,7 @@ import java.util.Iterator;
 public abstract class Piece {
     protected Color color;
     protected Space pos;
+    protected boolean Hasmoved = false;
 
     public Piece() {
     }
@@ -54,4 +55,7 @@ public abstract class Piece {
         return true;
     }
 
+    public boolean getHasmoved() {
+        return Hasmoved;
+    }
 }
