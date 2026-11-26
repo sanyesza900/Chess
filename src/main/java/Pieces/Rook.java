@@ -23,6 +23,9 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
+            }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
@@ -34,6 +37,9 @@ public class Rook extends Piece {
             Space fs = board.get(bid);
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
+            }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
             }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
@@ -51,6 +57,9 @@ public class Rook extends Piece {
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
             }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
+            }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);
                 break;
@@ -66,6 +75,9 @@ public class Rook extends Piece {
 
             if (fs != null && !fs.getIsOccupied()) {
                 movelist.add(fs);
+            }
+            else if (fs != null && !occupiedFriendly(fs)) {
+                break;
             }
             else if (fs != null && occupiedFriendly(fs)) {
                 movelist.add(fs);

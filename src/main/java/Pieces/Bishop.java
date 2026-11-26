@@ -26,6 +26,9 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
+            }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
@@ -42,6 +45,9 @@ public class Bishop extends Piece {
 
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
+            }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
             }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
@@ -60,6 +66,9 @@ public class Bishop extends Piece {
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
             }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
+            }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
                 break;
@@ -76,6 +85,9 @@ public class Bishop extends Piece {
 
             if (ns != null && !ns.getIsOccupied()) {
                 movelist.add(ns);
+            }
+            else if (ns != null && !occupiedFriendly(ns)) {
+                break;
             }
             else if (ns != null && occupiedFriendly(ns)) {
                 movelist.add(ns);
