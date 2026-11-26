@@ -9,10 +9,10 @@ public class Space {
     private int row;
     private boolean isoccupied;
 
-    private Color color;
-    private Color occupiedpiececolor;
+    private ColorLocal color;
+    private ColorLocal occupiedpiececolor;
 
-    public Space(char c, int r, Color col, int id) {
+    public Space(char c, int r, ColorLocal col, int id) {
         row = r;
         collumn = c;
         color = col;
@@ -28,7 +28,7 @@ public class Space {
         return collumn;
     }
 
-    public Color getColor() {
+    public ColorLocal getColor() {
         return color;
     }
 
@@ -38,7 +38,7 @@ public class Space {
         return isoccupied;
     }
 
-    public Color getOccupiedPieceColor() {
+    public ColorLocal getOccupiedPieceColor() {
         return occupiedpiececolor;
     }
 
@@ -46,13 +46,13 @@ public class Space {
         isoccupied = true;
     }
 
-    public void setOccupiedPieceColor(Color c) {
+    public void setOccupiedPieceColor(ColorLocal c) {
         occupiedpiececolor = c;
     }
 
     //Gives back the name as String
     public String getName() {
-        if (color == Color.WHITE) {
+        if (color == ColorLocal.WHITE) {
             return collumn + "" + row + "" + "w" + " ";
         }
         return collumn + "" + row + "" + "b" + " ";

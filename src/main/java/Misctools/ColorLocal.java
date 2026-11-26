@@ -1,10 +1,10 @@
 package Misctools;
 
-public enum Color {
+public enum ColorLocal {
     WHITE,
     BLACK;
 
-    public Color opposite() {
+    public ColorLocal opposite() {
         return this == WHITE ? BLACK : WHITE;
     }
 }
