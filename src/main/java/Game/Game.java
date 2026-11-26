@@ -1,9 +1,11 @@
 package Game;
 
 import Misctools.*;
+import Pieces.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Game extends JFrame {
@@ -55,8 +57,8 @@ public class Game extends JFrame {
                 order++;
 
                 chessSpace.addActionListener(e -> {
-                    System.out.println(gameboard.get(currentId).getRow());
-                    System.out.println(gameboard.get(currentId).getCollumn());
+                    Piece p = board.findPieceBySpaceId(currentId);
+                    highLightMoveandAttackSpaces(p);
                 });
 
                 chessSpace.setMargin(new Insets(0, 0, 0, 0));
@@ -71,6 +73,46 @@ public class Game extends JFrame {
         }
 
         add(graphicalBoardPanel);
+    }
+
+    //Tábla eredeti színére való visszaállitása
+    public void defaultColor() {
+        Color white = new Color(240, 217, 181);
+        Color black = new Color(181, 136, 99);
+
+        for (int row = 0; row < 8; row++) {
+            for (int collumn = 0; collumn < 8; collumn++) {
+                int currentId = 1 + collumn + 8 * row;
+                Space s = board.getBoard().get(currentId);
+
+                if (s.getColor() == ColorLocal.BLACK) {
+                    graphicalBoard[row][collumn].setBackground(black);
+                } else {
+                    graphicalBoard[row][collumn].setBackground(white);
+                }
+            }
+        }
+    }
+
+    //Mezők kiemelése ahová léphet vagy támadhat
+    public void highLightMoveandAttackSpaces(Piece piece) {
+        defaultColor();
+
+        Space cs = piece.getPos();
+        graphicalBoard[cs.getRow()][cs.getCollumn()].setBackground(new Color(244, 241, 147));
+
+        ArrayList<Space> moveList = piece.canMoveTo(board.getBoard());
+        ArrayList<Space> attackList = piece.attackList(moveList);
+
+        for (Space s : moveList) {
+            graphicalBoard[s.getRow()][s.getCollumn()].setBackground(new Color(144, 238,144));
+        }
+
+        if (attackList != null) {
+            for (Space s : attackList) {
+                graphicalBoard[s.getRow()][s.getCollumn()].setBackground(new Color(250, 105, 105));
+            }
+        }
     }
 
 }

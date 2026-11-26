@@ -1,6 +1,7 @@
 package Game;
 import Misctools.ColorLocal;
 import Misctools.Space;
+import Pieces.Piece;
 
 import java.util.HashMap;
 
@@ -52,6 +53,37 @@ public class Board {
         }
     }
 
+    public Piece findPieceBySpaceId(int id) {
+        Space s = board.get(id);
+        if (s.getIsOccupied() && s.getOccupiedPieceColor() == ColorLocal.WHITE) {
+            for (Piece p : white.Backrow) {
+                if (p.getPos() == s) {
+                    return p;
+                }
+            }
+
+            for (Piece p : white.Frontrow) {
+                if (p.getPos() == s) {
+                    return p;
+                }
+            }
+        }
+        else if (s.getIsOccupied() && s.getOccupiedPieceColor() == ColorLocal.BLACK) {
+            for (Piece p : black.Backrow) {
+                if (p.getPos() == s) {
+                    return p;
+                }
+            }
+
+            for (Piece p : black.Frontrow) {
+                if (p.getPos() == s) {
+                    return p;
+                }
+            }
+        }
+
+        return null;
+    }
 
     //for testing
     public void printBoard() {
