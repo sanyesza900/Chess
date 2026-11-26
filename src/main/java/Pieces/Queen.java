@@ -1,6 +1,5 @@
 package Pieces;
 
-import Misctools.Color;
 import Misctools.ColorLocal;
 import Misctools.Space;
 import Pieces.Piece;
@@ -29,4 +28,10 @@ public class Queen extends Piece {
 
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2655";
+        }
+        return "\u265B";
+    }
 }

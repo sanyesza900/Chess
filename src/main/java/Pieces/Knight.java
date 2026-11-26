@@ -1,6 +1,5 @@
 package Pieces;
 
-import Misctools.Color;
 import Misctools.ColorLocal;
 import Misctools.Space;
 
@@ -62,4 +61,10 @@ public class Knight extends Piece {
         return movelist;
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2658";
+        }
+        return "\u265E";
+    }
 }

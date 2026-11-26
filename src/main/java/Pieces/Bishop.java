@@ -1,6 +1,5 @@
 package Pieces;
 
-import Misctools.Color;
 import Misctools.ColorLocal;
 import Misctools.Space;
 
@@ -89,4 +88,10 @@ public class Bishop extends Piece {
 
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2657";
+        }
+        return "\u265D";
+    }
 }

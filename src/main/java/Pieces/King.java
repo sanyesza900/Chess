@@ -2,7 +2,6 @@
 package Pieces;
 
 import Game.Set;
-import Misctools.Color;
 import Misctools.ColorLocal;
 import Misctools.Space;
 
@@ -94,4 +93,10 @@ public class King extends Piece {
         return castleList;
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2654";
+        }
+        return "\u265A";
+    }
 }

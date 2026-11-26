@@ -1,6 +1,5 @@
 package Pieces;
 
-import Misctools.Color;
 import Misctools.ColorLocal;
 import Misctools.Space;
 
@@ -77,4 +76,10 @@ public class Rook extends Piece {
         return movelist;
     }
 
+    public String getUnicode() {
+        if (this.color == ColorLocal.WHITE) {
+            return "\u2656";
+        }
+        return "\u265C";
+    }
 }
